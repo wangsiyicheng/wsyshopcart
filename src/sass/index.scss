@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+nav{
+    overflow: hidden;
+    font-size: 12px;
+    height: 35px;
+    background-color: #f2f2f2;
+    .left{
+        float: left;
+        li{
+            line-height: 34px;
+            float: left;
+            padding: 0 6px;
+            a{
+                color: #737373;
+                span{
+                    color: #ff6a00;
+                    padding-right: 3px;
+                    padding-top: 6px;
+                    font-size: 16px;
+                    :nth-child(1){
+                        
+                        // line-height: 36px;
+                    }
+                }
+            }
+            :hover{
+                color: #ff6a00;
+                text-decoration: none;
+            }
+        }
+        
+    }
+    .right{
+        float: right;
+        li{
+            float: left;
+        }
+    }
+}
+#topBanner{
+    img{
+        height: 80px;
+        width: 100%;
+    };
+}

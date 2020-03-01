@@ -25,12 +25,12 @@ const webserver = require('gulp-webserver')
 const sass = require('gulp-sass')
 
 // 2. 先写一个打包 css 的方法
-const cssHandler = () => {
-  return gulp.src('./src/css/*.css')   // 找到 src 目录下 css 目录下 所有后缀为 .css 的文件
-             .pipe(autoprefixer())   // 把 css 代码自动添加前缀
-             .pipe(cssmin())  // 压缩 css 代码
-             .pipe(gulp.dest('./dist/css'))  // 压缩完毕的 css 代码放在 dist 目录下的 css 文件夹里面
-}
+// const cssHandler = () => {
+//   return gulp.src('./src/css/*.css')   // 找到 src 目录下 css 目录下 所有后缀为 .css 的文件
+//              .pipe(autoprefixer())   // 把 css 代码自动添加前缀
+//              .pipe(cssmin())  // 压缩 css 代码
+//              .pipe(gulp.dest('./dist/css'))  // 压缩完毕的 css 代码放在 dist 目录下的 css 文件夹里面
+// }
 
 // 3. 书写一个打包 js 的方法
 const jsHandler = () => {
@@ -67,6 +67,11 @@ const libHandler = () => {
   return gulp.src('./src/lib/**')
              .pipe(gulp.dest('./dist/lib'))
 }
+//移动fonts
+const fontsHandler = () => {
+  return gulp.src('./src/fonts/**')
+             .pipe(gulp.dest('./dist/fonts'))
+}
 
 // 7. 书写一个任务, 自动删除 dist 目录
 const delHandler = () => {
@@ -78,23 +83,23 @@ const delHandler = () => {
 const serverHandler = () => {
   return gulp.src('./dist') // 找到我要打开的页面的文件夹, 把这个文件夹当作网站根目录
              .pipe(webserver({ // 需要一些配置项
-               host: 'www.guoxiang.com', // 域名, 这个域名可以自定义
+               host: 'localhost', // 域名, 这个域名可以自定义
                port: 8080, // 端口号, 0 ~ 65535, 尽量不适用 0 ~ 1023
                open: './pages/index.html', // 你默认打开的首页, 从 dist 下面的目录开始书写
                livereload: true, // 自动刷新浏览器 - 热重启
                // 所有的代理配置都在 proxies 里面
-               proxies: [
-                 // 每一个代理配置就是一个对象
-                 {
-                   source: '/gx', // 源, 你的代理标识符
-                   // 你直接请求下面这个地址压根也拿不到东西, 因为跨域了
-                   target: 'http://127.0.0.1/test.php' // 目标, 你要代理的地址
-                 },
-                 {
-                   source: '/gx2',
-                   target: 'http://127.0.0.1/xxx.php'
-                 }
-               ]
+              //  proxies: [
+              //    // 每一个代理配置就是一个对象
+              //    {
+              //      source: '/gx', // 源, 你的代理标识符
+              //      // 你直接请求下面这个地址压根也拿不到东西, 因为跨域了
+              //      target: 'http://127.0.0.1/test.php' // 目标, 你要代理的地址
+              //    },
+              //    {
+              //      source: '/gx2',
+              //      target: 'http://127.0.0.1/xxx.php'
+              //    }
+              //  ]
              })) // 开启服务器
 }
 
@@ -111,15 +116,14 @@ const sassHandler = () => {
 //    比如 src 下面的 css 文件夹, 只要里面的文件以修改, 我就执行以下 cssHandler 这个任务
 const watchHandler = () => {
   // 监控着 src 下的 css 下的所有 .css 文件, 只要一发生变化, 就会自动执行一遍 cssHandler 任务
-  gulp.watch('./src/css/*.css', cssHandler)
+  // gulp.watch('./src/css/*.css', cssHandler)
   gulp.watch('./src/js/*.js', jsHandler)
   gulp.watch('./src/pages/*.html', htmlHandler)
   gulp.watch('./src/lib/**', libHandler)
   gulp.watch('./src/images/**', imgHandler)
-  gulp.watch('./src/sass/*.scss', sass)
+  gulp.watch('./src/sass/*.scss', sassHandler)
+  gulp.watch('./src/fonts/**', fontsHandler)
 }
-
-
 
 // 导出一个默认任务
 // 当我将来在命令行执行 gulp default 的时候, 就会自动把我写在 parallel 里面的五个任务给一起执行了
@@ -131,16 +135,10 @@ const watchHandler = () => {
 //   要在删除完毕 dist 以后, 在执行 css/js/html/... 之类的压缩转移任务
 module.exports.default = gulp.series(
   delHandler,
-  gulp.parallel(cssHandler, jsHandler, htmlHandler, imgHandler, libHandler, sassHandler),
+  gulp.parallel(jsHandler, htmlHandler, imgHandler, libHandler, sassHandler,fontsHandler),
   serverHandler,
   watchHandler
 )
-
-
-
-
-
-
 
 // 最后在文件里面导出我准备号的这个方法
 // 导出以后, 我们只能一个任务一个任务的执行
