@@ -83,7 +83,7 @@ const delHandler = () => {
 const serverHandler = () => {
   return gulp.src('./dist') // 找到我要打开的页面的文件夹, 把这个文件夹当作网站根目录
              .pipe(webserver({ // 需要一些配置项
-               host: 'localhost', // 域名, 这个域名可以自定义
+               host: 'www.wsyHua.com', // 域名, 这个域名可以自定义
                port: 8080, // 端口号, 0 ~ 65535, 尽量不适用 0 ~ 1023
                open: './pages/index.html', // 你默认打开的首页, 从 dist 下面的目录开始书写
                livereload: true, // 自动刷新浏览器 - 热重启

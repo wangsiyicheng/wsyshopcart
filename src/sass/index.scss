@@ -5,9 +5,10 @@
 li{
     list-style: none;
 }
-nav{
-    overflow: hidden;
+nav.topNav{
+    // overflow: hidden;
     font-size: 12px;
+    font-family: "宋体";
     height: 35px;
     background-color: #f2f2f2;
     .left{
@@ -23,10 +24,6 @@ nav{
                     padding-right: 3px;
                     padding-top: 6px;
                     font-size: 16px;
-                    :nth-child(1){
-                        
-                        // line-height: 36px;
-                    }
                 }
             }
             :hover{
@@ -40,12 +37,109 @@ nav{
         float: right;
         li{
             float: left;
+            border-right: 1px solid #ccc;
+            padding: 0 8px;
+            margin: 9px 0px;
+            &:nth-child(4){
+                margin:7px 0px;
+            }
+            color: #737373;
+            a{
+                color: #737373;
+                &:hover{
+                    color: #ff6a00;
+                    text-decoration: none;
+                }
+            }
+            button{
+                border: 0;
+                font-size: 12px;
+                padding: 0;
+                background-color: transparent;
+                color: #737373;
+                &:hover{
+                    color: #ff6a00;
+                    background-color: transparent;
+                }
+            }
         }
     }
 }
+
 #topBanner{
     img{
         height: 80px;
         width: 100%;
     };
+}
+// logo部分
+.logo{
+    height: 100px;
+}
+// 导航区
+nav.mainNav{
+    border-bottom: 5px solid #ff6a00;
+    .container{
+        ul{
+            >li{
+                float: left;
+                padding-left: 13px;
+                padding-right: 26px;
+                &:first-child{
+                    width: 200px;
+                    background-color: #ff6a00;
+                    a{
+                        color: #fff;
+                        &:hover{
+                            color: #fff;
+                        }
+                    }
+                }
+                &:last-child{
+                    a{
+                        color: #ff6a00;
+                    }
+                }
+                >a{
+                    color:#222;
+                    font: bold 16px/40px "";
+                    &:hover{
+                        text-decoration: none;
+                        color: #ff6a00;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+// banner下的轮播图
+.banner .swiper-container{
+    .swiper-button-prev{
+        left: 420px;
+        color: rgba(255,255,255,.5);
+        font-weight: bold ;
+        &:hover{
+            color: #fff;
+        }
+    }
+    .swiper-button-next{
+        right: 300px;
+        color: rgba(255,255,255,.5);
+        &:hover{
+            color: #fff;
+        }
+    }
+}
+.banner{
+    position: relative;
+}
+.banner .container{//banner上的导航区
+    position: absolute;
+    height: 100%;
+    width: 200px;
+    left: 190px;
+    background-color: #fff;
+    z-index: 2;
 }
