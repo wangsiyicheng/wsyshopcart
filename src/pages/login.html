@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../fonts/iconfont.css">
+    <link rel="stylesheet" href="../sass/login.css">
+</head>
+<body>
+    <nav class="topNav">
+        <div class="container">
+          <ul class="left">
+            <li><a href="#"><span class="glyphicon glyphicon-star"></span>收藏鲜花网(hua.com)</a></li>
+            <li><a href="#"><span class="iconfont icon-shouji01"></span>关注微信</a></li>
+            <li><a href="#"><span class="iconfont icon-weixin"></span>花礼网app</a></li>
+          </ul>
+          <ul class="right">
+            <li><a href="./login.html">你好,请登录</a>&nbsp;<a href="./login.html">注册</a></li>
+            <li><a href="#">订单查询</a></li>
+            <li><a href="#">我的花礼</a></li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  客户服务
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">在线付款</a></li>
+                  <li><a href="#">帮助中心</a></li>
+                  <li><a href="#">售后服务</a></li>
+                  <li><a href="#">配送范围</a></li>
+                  <li><a href="#">留言反馈</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="#">购物车</a></li>
+            <li>中国鲜花礼品网:中国鲜花网领先品牌</li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="logo">
+        先空着
+    </div>
+
+    <div class="loginBox">
+        <div class="login">
+            <ul>
+                <li><span>微信扫码</span> </li>
+                <li class="active"><span>账号密码登录</span></li>
+                <li><span>手机短信登录 </span></li>
+            </ul>
+            <ol>
+                <li>1</li>
+                <li class="active">
+                    <form action="" method="get">
+                        <!-- 跨域请求 -->
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">账号</span>
+                            <input type="text" class="form-control telNumber" placeholder="请输入花礼账号(手机)" aria-describedby="basic-addon1">
+                        </div>
+                        <p></p>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">密码</span>
+                            <input type="password" class="form-control pwd" placeholder="请输入密码" aria-describedby="basic-addon1">
+                        </div>
+                        <button class="btn btn-login">登录</button>
+                    </form>
+                </li>
+                <li>3</li>
+            </ol>
+            <p><a href="./register.html">一键快捷注册></a></p>
+        </div>
+    </div>
+  <script src="../lib/jquery/dist/jquery.min.js"></script>
+  <script src="../js/login.js"></script>
+</body>
+</html>

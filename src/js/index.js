@@ -23,4 +23,20 @@ $(document).ready(function () {
         //   el: '.swiper-scrollbar',
         // },
       }) 
+
+      //选项卡
+      $('.banner .container ul li').mouseover(function(){
+        if($(this).index()>=2){
+        $('.banner aside').css('display','block').children().eq($(this).index()-2).addClass('active').siblings().removeClass('active')
+        }
+      })
+      $('.banner .swiper-container').mouseenter(function(){
+        $('.banner aside').css('display','none') 
+      })
+      $('.banner aside').mouseleave(function(){
+        $(this).css('display','none') 
+      })
+
+      //切换到列表页面
+      
    })

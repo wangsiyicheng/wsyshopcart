@@ -1,0 +1,179 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+#topBanner{
+    img{
+        height: 80px;
+        width: 100%;
+    };
+}
+
+nav.topNav{
+    // overflow: hidden;
+    font-size: 12px;
+    font-family: "宋体";
+    height: 35px;
+    background-color: #f2f2f2;
+    .left{
+        float: left;
+        li{
+            line-height: 34px;
+            float: left;
+            padding: 0 6px;
+            a{
+                color: #737373;
+                span{
+                    color: #ff6a00;
+                    padding-right: 3px;
+                    padding-top: 6px;
+                    font-size: 16px;
+                }
+            }
+            :hover{
+                color: #ff6a00;
+                text-decoration: none;
+            }
+        }
+        
+    }
+    .right{
+        float: right;
+        li{
+            float: left;
+            border-right: 1px solid #ccc;
+            padding: 0 8px;
+            margin: 9px 0px;
+            &:nth-child(4){
+                margin:7px 0px;
+            }
+            color: #737373;
+            a{
+                color: #737373;
+                &:hover{
+                    color: #ff6a00;
+                    text-decoration: none;
+                }
+            }
+            button{
+                border: 0;
+                font-size: 12px;
+                padding: 0;
+                background-color: transparent;
+                color: #737373;
+                &:hover{
+                    color: #ff6a00;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+// logo部分
+.logo{
+    height: 100px;
+}
+// 导航区
+nav.mainNav{
+    border-bottom: 5px solid #ff6a00;
+    .container{
+        ul{
+            >li{
+                float: left;
+                padding:0 20px;
+                &:first-child{
+                    width: 230px;
+                    background-color: #ff6a00;
+                    a{
+                        color: #fff;
+                        &:hover{
+                            color: #fff;
+                        }
+                    }
+                }
+                &:last-child{
+                    a{
+                        color: #ff6a00;
+                    }
+                }
+                >a{
+                    color:#222;
+                    font: bold 15px/38px "";
+                    &:hover{
+                        text-decoration: none;
+                        color: #ff6a00;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+aside{
+    .container{
+        .btn-group{
+            margin: 2px;
+            .btn{
+                border: 0;
+                background-color: #fff;
+                &:hover{
+                    color: #ff6a00;
+                }
+            }
+        }
+        ul{
+            overflow: hidden;
+            li{
+                height: 320px;
+                width: 240px;
+                border: 1px solid #fff;
+                float: left;
+                margin-bottom: 30px;
+                margin-right: 40px;
+                margin-left: 5px;
+                box-sizing: border-box;
+                text-align: center;
+                &:hover{
+                    border: 1px solid #ccc;
+                    button{
+                        color: #ff6a00;
+                    }
+                }
+                img{
+                    display: block;
+                    width: 200px;
+                    height: 200px;
+                    margin: 10px auto;
+                }
+                p{
+                    padding-left:17px ;
+                    color: #ff6a00;
+                    font-weight: bold;
+                }
+                div{
+                    margin: 0 17px;
+                    font: 14px/22px "";
+                    color: #666;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                button{
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    padding: 4px 6px;
+                    margin:8px;
+                }
+            }
+        }
+    }
+}
+
+.paginationBox{
+    margin-left: 800px;
+}

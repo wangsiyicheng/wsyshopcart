@@ -1,1 +1,1 @@
-"use strict";
+"use strict";$(".loginBox .login ul").children().on("click",function(){$(this).addClass("active").siblings().removeClass("active"),$(".loginBox .login ol").children().eq($(this).index()).addClass("active").siblings().removeClass("active")}),$(".btn-login").click(function(e){e.preventDefault(),$.ajax({url:"/login",method:"get",data:{telNumber:$(".telNumber").prop("value"),pwd:$(".pwd").prop("value")},datatype:"json",success:function(e){JSON.parse(e).status&&(location.href="./index.html")}})});
