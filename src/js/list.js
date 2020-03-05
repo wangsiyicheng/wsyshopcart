@@ -40,9 +40,22 @@ getData()
 function setData(arr){
     let str=''
     arr.forEach(function(item){
-        str+=`<li><img src='//img01.hua.com/uploadpic/newpic/${item.ItemCode}.jpg_220x240.jpg'><p>￥${item.Price}</p><div>${item.Cpmc}-${item.Instro}</div><button>加入购物车</button></li>`
+        str+=`<li data-itemcode=${item.ItemCode}><img src='//img01.hua.com/uploadpic/newpic/${item.ItemCode}.jpg_220x240.jpg'><p>￥${item.Price}</p><div>${item.Cpmc}-${item.Instro}</div><button>加入购物车</button></li>`
     })
     $('aside .container ul').html(str)
+    //给元素添加事件
+    //点击介绍进入详情页
+    $('aside .container ul li div').click(function(){
+        detailShow($(this).parents('li').data('itemcode'))
+    })
+    //点击图片也进入详情页
+    $('aside .container ul li img').click(function(){
+        detailShow($(this).parents('li').data('itemcode'))
+    })
+    //点击添加购物车,把商品添加到购物车
+    $('aside .container ul li button').click(function(){
+        addProduct($(this).parents('li').data('itemcode'))
+    })
 }
 
 //点击综合按钮  变成初始状态
@@ -108,3 +121,54 @@ $('.btn-price').click(function(){
     });
     setData(arr.slice(0,16))
 })
+
+//点击图片或者介绍,进入详情页,展示对应的商品
+function detailShow(id){
+    //将点击的商品存入localStorage
+    //找到id对应的商品信息
+    localStorage.setItem('detail','')
+    let obj={}
+    arr.forEach(function(item){
+        if(item.ItemCode==id){
+            obj=item
+        }
+    })
+    localStorage.setItem('detail',JSON.stringify(obj));
+    location.href='http://www.wsyhua.com:8080/pages/detail.html';
+}
+
+//把商品添加到购物车的函数
+function addProduct(id){
+    //根据id找到对应的数据
+    let obj={}
+    arr.forEach(function(item){
+        if(item.ItemCode==id){
+            obj=item
+        }
+    })
+    // 首先判断localStorage中有没有购物车数据
+    if(!localStorage.getItem('cart')){//没有购物车数据
+        obj.num=1
+        let arrProductNew=[]
+        arrProductNew.push(obj)
+        localStorage.setItem('cart',JSON.stringify(arrProductNew))
+    }else{//有购物车数组了
+        //再判断有没有这个商品,先取得这个数组
+        let arrProduct=JSON.parse(localStorage.getItem('cart'))
+        let result=arrProduct.some(function(item){
+            return item.ItemCode==id
+        })
+        if(result){
+            arrProduct.forEach(function(item,index){
+                if(item.ItemCode==id){
+                    item.num+=1
+                }
+            })
+        }else{//没有这个商品
+            obj.num=1;
+            arrProduct.push(obj)
+        }
+        //再把数组塞回去
+        localStorage.setItem('cart',JSON.stringify(arrProduct))
+    }
+}

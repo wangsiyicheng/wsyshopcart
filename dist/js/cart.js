@@ -1,1 +1,1 @@
-"use strict";
+"use strict";var arr=JSON.parse(localStorage.getItem("cart"));function setData(t){var c="";t&&(t.forEach(function(t){c+="<tr><td><input type='checkbox'></td><td><img src='//img01.hua.com/uploadpic/newpic/".concat(t.ItemCode,".jpg_80x87.jpg'><span>").concat(t.Cpmc,"</span></td><td>").concat(t.LinePrice,"</td><td>").concat(t.Price,"</td><td><input type='button' value='-'><input type='text' value=").concat(t.num,"><input type='button' value='+'></td><td>").concat(t.num*t.Price,"</td><td><button>删除</button></td></tr>")}),$("tbody").html(c))}setData(arr);

@@ -5,12 +5,6 @@
 li{
     list-style: none;
 }
-#topBanner{
-    img{
-        height: 80px;
-        width: 100%;
-    };
-}
 
 nav.topNav{
     // overflow: hidden;
@@ -149,6 +143,9 @@ aside{
                     width: 200px;
                     height: 200px;
                     margin: 10px auto;
+                    &:hover{
+                        cursor: pointer;
+                    }
                 }
                 p{
                     padding-left:17px ;
@@ -162,6 +159,10 @@ aside{
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
+                    &:hover{
+                        color: #ff6a00;
+                        cursor: pointer;
+                    }
                 }
                 button{
                     background-color: #fff;
@@ -176,4 +177,8 @@ aside{
 
 .paginationBox{
     margin-left: 800px;
+}
+
+footer{
+    height: 400px;
 }
