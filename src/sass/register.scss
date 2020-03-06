@@ -5,7 +5,6 @@
 li{
     list-style: none;
 }
-
 nav.topNav{
     // overflow: hidden;
     font-size: 12px;
@@ -66,59 +65,63 @@ nav.topNav{
         }
     }
 }
+// logo部分
+.logo{
+    overflow: hidden;
+    // height: 100px;
+    img{
+        float: left;
+        margin-bottom: 10px;
+    }
+    .input-group{
+        width: 442px;
+        margin-top: 10px;
+        float: right;
+        button{
+            background-color: #ff6a00;
+            color: #fff;
+        }
+    }
+}
 
-.container{
-    .orange{
-        color: #ff6a00;
-        &:hover{
-            color:#ff6a77;
-            text-decoration: none;
-        }
-    }
-    table{
-        border: 1px solid #ccc;
-        thead{
-            background-color: #bbb;
-            color: #555;
-            line-height: 50px;
-            font: 14px/50px "";
-            th{
-                text-align: center;
-                vertical-align: middle;
-                button{
-                    background-color: #bbb;
-                    color: #555;
-                    font-weight: bold;
-                }
-                input{
-                    vertical-align: middle;
-                }
+//注册盒子部分
+.loginBox{
+    overflow: hidden;
+    background: url(//img02.hua.com/pc/assets/img/login_bg.jpg);
+    height: 474px;
+    .login{
+        height: 90%;
+        width: 440px;
+        background-color: #fff;
+        margin: 1% 600px;
+        margin-left: 890px;
+        overflow: hidden;
+        form{
+            width: 320px;
+            height: 265px;
+            margin:60px;
+            p{
+                height: 30px;
+            }
+            button{
+                width: 320px;
+                background-color: #ff6a00;
+                margin-top: 50px;
+                font:bold 18px/26px "";
+                color: #fff;
+                letter-spacing: 8px;
+                border-radius: 22px;
             }
         }
-        tbody{
-            td{
-                padding: 0;
-                font: 16px/80px "";
-                text-align: center;
-                img{
-                    height: 80px;
-                }
-                input{
-                    vertical-align: middle;
-                }
-                .form-control{
-                    display: inline;
-                    width: 60px;
-                    text-align: right;
-                    margin: 0 10px;
-                }
+        >p{
+            background-color: #aaa;
+            text-align: center;
+            font: 16px/42px "";
+            a{
+                text-decoration: none;
+                color: #444;
             }
         }
-    }
-    P{
-        text-align: right;
-        font:16px/20px "";
-        color: #ff6a00;
     }
 }
 footer{

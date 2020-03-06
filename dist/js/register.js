@@ -1,0 +1,1 @@
+"use strict";$(".btn-register").click(function(e){e.preventDefault(),$.ajax({url:"/register",method:"get",data:{username:$(".username").prop("value"),pwd:$(".pwd").prop("value")},datatype:"json",success:function(e){JSON.parse(e).status&&(location.href="./login.html")}})});

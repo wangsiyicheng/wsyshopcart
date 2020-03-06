@@ -67,7 +67,21 @@ nav.topNav{
 }
 // logo部分
 .logo{
-    height: 100px;
+    overflow: hidden;
+    // height: 100px;
+    img{
+        float: left;
+        margin-bottom: 10px;
+    }
+    .input-group{
+        width: 442px;
+        margin-top: 10px;
+        float: right;
+        button{
+            background-color: #ff6a00;
+            color: #fff;
+        }
+    }
 }
 
 //登录盒子部分
@@ -80,7 +94,7 @@ nav.topNav{
         width: 440px;
         background-color: #fff;
         margin: 1% 600px;
-        margin-left: 1000px;
+        margin-left: 890px;
         ul{
             border-bottom: 2px solid #ddd;
             display: flex;

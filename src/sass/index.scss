@@ -75,7 +75,21 @@ nav.topNav{
 
 // logo部分
 .logo{
-    height: 100px;
+    overflow: hidden;
+    // height: 100px;
+    img{
+        float: left;
+        margin-bottom: 10px;
+    }
+    .input-group{
+        width: 400px;
+        margin-top: 10px;
+        float: right;
+        button{
+            background-color: #ff6a00;
+            color: #fff;
+        }
+    }
 }
 // 导航区
 nav.mainNav{

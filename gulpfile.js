@@ -98,7 +98,11 @@ const serverHandler = () => {
                  {
                    source: '/data',
                    target: 'https://www.hua.com/home/GetProductListPrice'
-                 }
+                 },
+                 {
+                  source: '/register',
+                  target: 'http://127.0.0.1/mycode/wsyhua/register.php'
+                }
                ]
              })) // 开启服务器
 }
